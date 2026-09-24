@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ansh-raj-developer.github.io/everyday-tools/sitemap.xml
