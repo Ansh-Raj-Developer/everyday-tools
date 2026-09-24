@@ -1,0 +1,160 @@
+/* =========================================
+   EVERYDAY TOOLS
+   Shared Tool Page Styles
+========================================= */
+
+.calculator-page {
+    max-width: 900px;
+    margin: auto;
+    padding: 70px 20px;
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.calculator-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin-bottom: 12px;
+}
+
+.calculator-header p {
+    color: var(--muted);
+    max-width: 650px;
+    margin: auto;
+}
+
+.calculator-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+}
+
+.input-group {
+    margin-bottom: 22px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    font-size: 1rem;
+    outline: none;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--primary);
+}
+
+.calculate-btn {
+    width: 100%;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 15px;
+
+    background: var(--primary);
+    color: white;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.calculate-btn:hover {
+    background: var(--primary-dark);
+}
+
+.results {
+    margin-top: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.result-card {
+    background: var(--soft-blue);
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+.result-card p {
+    color: var(--muted);
+    font-size: 0.85rem;
+
+    margin-bottom: 5px;
+}
+
+.result-card h2 {
+    color: var(--primary);
+    font-size: 1.35rem;
+}
+
+.result {
+    margin-top: 30px;
+
+    background: var(--soft-blue);
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    text-align: center;
+}
+
+.result p {
+    color: var(--muted);
+    margin-bottom: 5px;
+}
+
+.result h2 {
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.info-section {
+    margin-top: 55px;
+}
+
+.info-section h2 {
+    margin-bottom: 12px;
+}
+
+.info-section p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+@media (max-width: 650px) {
+
+    .calculator-box {
+        padding: 22px;
+    }
+
+    .results {
+        grid-template-columns: 1fr;
+    }
+
+}

@@ -1,0 +1,438 @@
+/* =========================================
+   EVERYDAY TOOLS
+   Main Stylesheet
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #f7f9fc;
+    --surface: #ffffff;
+    --text: #111827;
+    --muted: #667085;
+    --border: #e5e7eb;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --soft-blue: #eff6ff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.logo span,
+.footer-logo span {
+    color: var(--primary);
+}
+
+.navbar nav {
+    display: flex;
+    gap: 28px;
+}
+
+.navbar nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.navbar nav a:hover {
+    color: var(--primary);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    padding: 100px 20px 90px;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #dbeafe 0%,
+            transparent 45%
+        );
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.7rem);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-description {
+    max-width: 600px;
+    margin: auto;
+
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.hero-search {
+    max-width: 620px;
+    margin: 35px auto 0;
+
+    display: flex;
+
+    background: white;
+    padding: 7px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07);
+}
+
+.hero-search input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 14px 16px;
+
+    font-size: 1rem;
+    background: transparent;
+}
+
+.hero-search button {
+    border: none;
+
+    background: var(--primary);
+    color: white;
+
+    padding: 0 24px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.hero-search button:hover {
+    background: var(--primary-dark);
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.tools-section,
+.why-section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 80px 20px;
+}
+
+.section-heading {
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.section-heading p:last-child {
+    color: var(--muted);
+}
+
+
+/* =========================================
+   TOOL CARDS
+========================================= */
+
+.tools-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.tool-card {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    padding: 26px;
+
+    text-decoration: none;
+    color: inherit;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.tool-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--soft-blue);
+
+    border-radius: 12px;
+
+    font-size: 1.4rem;
+
+    margin-bottom: 20px;
+}
+
+.tool-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.tool-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+
+    margin-bottom: 20px;
+}
+
+.tool-card span {
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.feature {
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    padding: 30px;
+}
+
+.feature > span {
+    font-size: 1.7rem;
+}
+
+.feature h3 {
+    margin: 15px 0 7px;
+}
+
+.feature p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: #111827;
+    color: white;
+
+    text-align: center;
+
+    padding: 55px 20px;
+}
+
+.footer-logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+footer > p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    margin: 25px 0;
+}
+
+.footer-links a {
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.copyright {
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 75px 20px 65px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .tools-grid,
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .tools-grid,
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-search {
+        flex-direction: column;
+
+        gap: 8px;
+
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .hero-search input {
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: 10px;
+
+        padding: 15px;
+    }
+
+    .hero-search button {
+        min-height: 50px;
+    }
+
+    .tools-section,
+    .why-section {
+        padding: 60px 20px;
+    }
+}

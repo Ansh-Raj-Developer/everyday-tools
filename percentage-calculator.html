@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Free Percentage Calculator. Calculate percentages, percentage increase, decrease and percentage difference quickly.">
+
+    <title>Percentage Calculator — Everyday Tools</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <a href="../index.html" class="logo">
+        Everyday<span>Tools</span>
+    </a>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#calculators">
+            Calculators
+        </a>
+    </nav>
+
+</header>
+
+
+<main>
+
+<section class="calculator-page">
+
+    <div class="calculator-header">
+
+        <p class="eyebrow">
+            MATH TOOL
+        </p>
+
+        <h1>Percentage Calculator</h1>
+
+        <p>
+            Calculate percentages quickly and easily.
+        </p>
+
+    </div>
+
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+
+            <label for="percentage">
+                Percentage (%)
+            </label>
+
+            <input
+                type="number"
+                id="percentage"
+                value="20"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="number">
+                Number
+            </label>
+
+            <input
+                type="number"
+                id="number"
+                value="500"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <button
+            class="calculate-btn"
+            onclick="calculatePercentage()"
+        >
+            Calculate
+        </button>
+
+
+        <div class="result">
+
+            <p>
+                Result
+            </p>
+
+            <h2 id="result">
+                100
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-section">
+
+        <h2>
+            What is a percentage?
+        </h2>
+
+        <p>
+            A percentage represents a number as a fraction
+            of 100. Percentages are commonly used for
+            discounts, marks, statistics and financial
+            calculations.
+        </p>
+
+
+        <h2>
+            Percentage Formula
+        </h2>
+
+        <p>
+            Percentage of a number =
+            (Percentage ÷ 100) × Number
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-logo">
+        Everyday<span>Tools</span>
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="../about.html">
+            About
+        </a>
+
+        <a href="../contact.html">
+            Contact
+        </a>
+
+        <a href="../privacy-policy.html">
+            Privacy Policy
+        </a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 Everyday Tools. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+function calculatePercentage() {
+
+    const percentage =
+        Number(
+            document.getElementById(
+                "percentage"
+            ).value
+        );
+
+    const number =
+        Number(
+            document.getElementById(
+                "number"
+            ).value
+        );
+
+
+    if (
+        isNaN(percentage) ||
+        isNaN(number)
+    ) {
+
+        alert(
+            "Please enter valid numbers."
+        );
+
+        return;
+
+    }
+
+
+    const result =
+        (percentage / 100) * number;
+
+
+    document.getElementById(
+        "result"
+    ).textContent =
+        result.toLocaleString(
+            "en-IN",
+            {
+                maximumFractionDigits: 2
+            }
+        );
+
+}
+
+</script>
+
+</body>
+
+</html>

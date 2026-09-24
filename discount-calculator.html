@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Free Discount Calculator. Calculate sale prices, discounts and how much money you save.">
+
+    <title>Discount Calculator — Everyday Tools</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <a href="../index.html" class="logo">
+        Everyday<span>Tools</span>
+    </a>
+
+    <nav>
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="../index.html#calculators">
+            Calculators
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+<section class="calculator-page">
+
+    <div class="calculator-header">
+
+        <p class="eyebrow">
+            SHOPPING TOOL
+        </p>
+
+        <h1>Discount Calculator</h1>
+
+        <p>
+            Calculate your discount, savings and final
+            sale price instantly.
+        </p>
+
+    </div>
+
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+
+            <label for="originalPrice">
+                Original Price (₹)
+            </label>
+
+            <input
+                type="number"
+                id="originalPrice"
+                value="1000"
+                min="0"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="discount">
+                Discount (%)
+            </label>
+
+            <input
+                type="number"
+                id="discount"
+                value="20"
+                min="0"
+                max="100"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <button
+            class="calculate-btn"
+            onclick="calculateDiscount()"
+        >
+            Calculate Discount
+        </button>
+
+
+        <div class="results">
+
+            <div class="result-card">
+
+                <p>Discount Amount</p>
+
+                <h2 id="discountAmount">
+                    ₹0
+                </h2>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <p>You Save</p>
+
+                <h2 id="youSave">
+                    ₹0
+                </h2>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <p>Final Price</p>
+
+                <h2 id="finalPrice">
+                    ₹0
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-section">
+
+        <h2>
+            What is a discount?
+        </h2>
+
+        <p>
+            A discount reduces the original price of a
+            product or service by a specified percentage.
+        </p>
+
+
+        <h2>
+            How is the discount calculated?
+        </h2>
+
+        <p>
+            Discount amount =
+            Original Price × Discount Percentage ÷ 100.
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-logo">
+        Everyday<span>Tools</span>
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="../about.html">
+            About
+        </a>
+
+        <a href="../contact.html">
+            Contact
+        </a>
+
+        <a href="../privacy-policy.html">
+            Privacy Policy
+        </a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 Everyday Tools. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+function calculateDiscount() {
+
+    const originalPrice =
+        Number(
+            document.getElementById(
+                "originalPrice"
+            ).value
+        );
+
+    const discount =
+        Number(
+            document.getElementById(
+                "discount"
+            ).value
+        );
+
+
+    if (
+        originalPrice < 0 ||
+        discount < 0 ||
+        discount > 100
+    ) {
+
+        alert(
+            "Please enter valid values."
+        );
+
+        return;
+
+    }
+
+
+    const discountAmount =
+        originalPrice *
+        discount /
+        100;
+
+
+    const finalPrice =
+        originalPrice -
+        discountAmount;
+
+
+    const formattedDiscount =
+        formatCurrency(discountAmount);
+
+    const formattedFinal =
+        formatCurrency(finalPrice);
+
+
+    document.getElementById(
+        "discountAmount"
+    ).textContent =
+        formattedDiscount;
+
+
+    document.getElementById(
+        "youSave"
+    ).textContent =
+        formattedDiscount;
+
+
+    document.getElementById(
+        "finalPrice"
+    ).textContent =
+        formattedFinal;
+
+}
+
+
+function formatCurrency(number) {
+
+    return new Intl.NumberFormat(
+        "en-IN",
+        {
+            style: "currency",
+            currency: "INR",
+            maximumFractionDigits: 2
+        }
+    ).format(number);
+
+}
+
+
+calculateDiscount();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Free Age Calculator. Calculate your exact age in years, months and days from your date of birth.">
+
+    <title>Age Calculator — Everyday Tools</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+
+    <style>
+        .date-input {
+            color: var(--text);
+        }
+
+        .age-result {
+            margin-top: 30px;
+            padding: 25px;
+            background: var(--soft-blue);
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .age-result h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .age-result p {
+            color: var(--muted);
+        }
+
+        .error-message {
+            color: #dc2626;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="../index.html" class="logo">
+        Everyday<span>Tools</span>
+    </a>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#calculators">Calculators</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="calculator-page">
+
+    <div class="calculator-header">
+        <p class="eyebrow">DATE TOOL</p>
+
+        <h1>Age Calculator</h1>
+
+        <p>
+            Calculate your exact age in years, months and days.
+        </p>
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+            <label for="birthDate">Date of Birth</label>
+
+            <input
+                type="date"
+                id="birthDate"
+                class="date-input"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="asOfDate">Calculate Age On</label>
+
+            <input
+                type="date"
+                id="asOfDate"
+                class="date-input"
+            >
+        </div>
+
+        <button
+            class="calculate-btn"
+            onclick="calculateAge()"
+        >
+            Calculate Age
+        </button>
+
+        <div class="age-result">
+
+            <h2 id="ageResult">
+                Enter your birth date
+            </h2>
+
+            <p id="ageDetails">
+                Your exact age will appear here.
+            </p>
+
+        </div>
+
+        <p id="errorMessage" class="error-message"></p>
+
+    </div>
+
+    <div class="info-section">
+
+        <h2>What is an Age Calculator?</h2>
+
+        <p>
+            An age calculator determines the time elapsed
+            between a person's date of birth and a selected
+            date.
+        </p>
+
+        <h2>How does it work?</h2>
+
+        <p>
+            The calculator compares the year, month and day
+            of the two dates to determine the person's age.
+            It accounts for different month lengths and leap years.
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+
+    <div class="footer-logo">
+        Everyday<span>Tools</span>
+    </div>
+
+    <p>Simple tools for everyday life.</p>
+
+    <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+    </div>
+
+    <p class="copyright">
+        © 2026 Everyday Tools. All rights reserved.
+    </p>
+
+</footer>
+
+<script>
+
+function getToday() {
+
+    const today = new Date();
+
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+
+}
+
+
+function calculateAge() {
+
+    const birthDateValue =
+        document.getElementById("birthDate").value;
+
+    const asOfDateValue =
+        document.getElementById("asOfDate").value;
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+    errorMessage.textContent = "";
+
+
+    if (!birthDateValue || !asOfDateValue) {
+
+        errorMessage.textContent =
+            "Please enter both dates.";
+
+        return;
+
+    }
+
+
+    const birthDate =
+        new Date(birthDateValue + "T00:00:00");
+
+    const asOfDate =
+        new Date(asOfDateValue + "T00:00:00");
+
+
+    if (birthDate > asOfDate) {
+
+        errorMessage.textContent =
+            "The date of birth cannot be after the selected date.";
+
+        return;
+
+    }
+
+
+    let years =
+        asOfDate.getFullYear() -
+        birthDate.getFullYear();
+
+    let months =
+        asOfDate.getMonth() -
+        birthDate.getMonth();
+
+    let days =
+        asOfDate.getDate() -
+        birthDate.getDate();
+
+
+    if (days < 0) {
+
+        months--;
+
+        const previousMonth =
+            new Date(
+                asOfDate.getFullYear(),
+                asOfDate.getMonth(),
+                0
+            );
+
+        days += previousMonth.getDate();
+
+    }
+
+
+    if (months < 0) {
+
+        years--;
+        months += 12;
+
+    }
+
+
+    document.getElementById("ageResult").textContent =
+        `${years} Years, ${months} Months, ${days} Days`;
+
+    document.getElementById("ageDetails").textContent =
+        `Calculated on ${asOfDateValue}.`;
+
+}
+
+
+document.getElementById("asOfDate").value = getToday();
+
+</script>
+
+</body>
+</html>
